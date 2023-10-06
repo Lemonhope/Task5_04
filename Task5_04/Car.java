@@ -1,11 +1,11 @@
 package Task5_04;
 
-public class Car {
-    private String model; //model - назва машини
-    private double power; //power - від 0.0 до 200.0
-    private int speed; //speed - від 0 до 320
-    private double price; //price - від 0.0 до 50000.0
-    private final int yearOfManufacture  = 1967;
+public abstract class Car {
+    protected String model; //model - назва машини
+    protected double power; //power - від 0.0 до 200.0
+    protected int speed; //speed - від 0 до 320
+    protected double price; //price - від 0.0 до 50000.0
+    protected final int yearOfManufacture  = 1967;
 
     public Car() {
     }
@@ -15,6 +15,30 @@ public class Car {
         this.power = power;
         this.speed = speed;
         this.price = price;
+    }
+    public double checkValuePower(double powerToCheck) {
+        if (powerToCheck > 200) {
+            return 200;
+        } else if (powerToCheck < 0) {
+            return 0;
+        }
+        return powerToCheck;
+    }
+    public double checkValuePrice(double priceToCheck) {
+        if (priceToCheck > 50000) {
+            return 50000;
+        } else if (priceToCheck < 0) {
+            return 0;
+        }
+        return priceToCheck;
+    }
+    public int checkValueSpeed(int speedToCheck) {
+        if (speedToCheck > 320) {
+            return 320;
+        } else if (speedToCheck < 0) {
+            return 0;
+        }
+        return speedToCheck;
     }
 
     @Override
