@@ -3,35 +3,37 @@ package Task5_04;
 import java.util.ArrayList;
 
 public class CarInfo {
-    private ArrayList<Car> carList=new ArrayList<Car>();
+    private Car[] carList=new Car[1000];
+    private int num;
+
+    public CarInfo() {
+        this.num=0;
+    }
 
     public void addCar(Car newCar){
-        carList.add(newCar);
+        carList[this.num++]=newCar;
     }
     public Car fastestCar(){
-        Car fastCar=carList.get(0);
-        for (Car i:carList) {
-            if(i.getSpeed() > fastCar.getSpeed()){
-                fastCar=i;
-            }
+        Car fastCar=carList[0];
+        for (int i=1; i<this.num; i++) {
+            if(carList[i].getSpeed() > fastCar.getSpeed())
+                fastCar=carList[i];
         }
         return fastCar;
     }
     public Car expensiveCar(){
-        Car expensCar=carList.get(0);
-        for (Car i:carList) {
-            if(i.getPrice() > expensCar.getPrice()){
-                expensCar=i;
-            }
+        Car expensCar=carList[0];
+        for (int i=1; i<this.num; i++) {
+            if(carList[i].getPrice() > expensCar.getPrice())
+                expensCar=carList[i];
         }
         return expensCar;
     }
     public Car powerCar(){
-        Car power=carList.get(0);
-        for (Car i:carList) {
-            if(i.getPower() > power.getPower()){
-                power=i;
-            }
+        Car power=carList[0];
+        for (int i=1; i<this.num; i++) {
+            if(carList[i].getPower() > power.getPower())
+                power=carList[i];
         }
         return power;
     }
